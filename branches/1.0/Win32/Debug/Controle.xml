@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+	<Conexao>
+		<Id>2</Id>	
+		<Banco>192.168.15.6t:1521/xe</Banco>
+		<Usuario>gestor</Usuario>
+		<Senha>E67FD50B4BFC5A</Senha>
+	</Conexao>
+	<Contrato>
+		<Numero>68A9E85BBFB6</Numero>
+		<Senha>08409F568FBD1230D307</Senha>
+	</Contrato>
+</Configuration>

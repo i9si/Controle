@@ -1,0 +1,7 @@
+SELECT id,
+       data_fechamento
+  FROM caixa
+ WHERE usuario_id = 129
+   and trunc(data_fechamento)
+   between to_date('04/03/2022', 'dd/mm/yyyy')
+   and to_date('04/03/2022', 'dd/mm/yyyy')

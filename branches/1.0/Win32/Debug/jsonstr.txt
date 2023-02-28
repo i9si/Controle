@@ -1,0 +1,1 @@
+{"items":[{"name":"Boleto referente ao contrato: 113  ","value":1220,"amount":1}],"metadata":{"custom_id":"113","notification_url":"https://semusarwebhook.com.br/gerencianet/notify/"}}

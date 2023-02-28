@@ -1,0 +1,5 @@
+1) Ao excluir o cliente nao apresenta mensagem -
+2) ocultar o representanten
+3) Atualizar campo do banco quando
+
+4) Trocar oa campos SIM e nao para checkbox

@@ -1,0 +1,90 @@
+[Stats]
+<<<<<<< .mine
+<<<<<<< .mine
+<<<<<<< .mine
+<<<<<<< .mine
+EditorSecs=519148
+DesignerSecs=139556
+InspectorSecs=66692
+CompileSecs=41044722
+OtherSecs=186139
+||||||| .r22
+EditorSecs=427213
+DesignerSecs=126970
+InspectorSecs=60922
+CompileSecs=32406145
+OtherSecs=156614
+=======
+EditorSecs=427607
+DesignerSecs=127226
+InspectorSecs=61660
+CompileSecs=32523475
+OtherSecs=157497
+>>>>>>> .r25
+||||||| .r14
+EditorSecs=412850
+DesignerSecs=122989
+InspectorSecs=58647
+CompileSecs=31176802
+OtherSecs=143311
+=======
+EditorSecs=416517
+DesignerSecs=124955
+InspectorSecs=59287
+CompileSecs=31544881
+OtherSecs=143910
+>>>>>>> .r17
+||||||| .r199
+EditorSecs=147639
+DesignerSecs=55548
+InspectorSecs=32488
+CompileSecs=13484921
+OtherSecs=72459
+=======
+EditorSecs=148554
+DesignerSecs=56042
+InspectorSecs=32781
+CompileSecs=13535875
+OtherSecs=72816
+>>>>>>> .r203
+||||||| .r101
+EditorSecs=106330
+DesignerSecs=29957
+InspectorSecs=20374
+CompileSecs=9181991
+OtherSecs=52512
+=======
+EditorSecs=110202
+DesignerSecs=31622
+InspectorSecs=20797
+CompileSecs=9268109
+OtherSecs=64868
+>>>>>>> .r103
+StartTime=22/11/2018 08:27:38
+RealKeys=0
+EffectiveKeys=0
+<<<<<<< .mine
+<<<<<<< .mine
+<<<<<<< .mine
+<<<<<<< .mine
+DebugSecs=1257786
+||||||| .r22
+DebugSecs=1022367
+=======
+DebugSecs=1024979
+>>>>>>> .r25
+||||||| .r14
+DebugSecs=952992
+=======
+DebugSecs=964097
+>>>>>>> .r17
+||||||| .r199
+DebugSecs=410579
+=======
+DebugSecs=411294
+>>>>>>> .r203
+||||||| .r101
+DebugSecs=324992
+=======
+DebugSecs=326038
+>>>>>>> .r103
