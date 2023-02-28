@@ -79,7 +79,10 @@ inherited ControleConsultaCaixaGeral: TControleConsultaCaixaGeral
     end
   end
   inherited UniPanel2: TUniPanel
+    Height = 479
+    ExplicitHeight = 479
     inherited GrdResultado: TUniDBGrid
+      Height = 479
       LoadMask.Target = Owner
       Columns = <
         item
@@ -124,6 +127,10 @@ inherited ControleConsultaCaixaGeral: TControleConsultaCaixaGeral
           ReadOnly = True
         end>
     end
+    inherited UniPanelLeft: TUniPanel
+      Height = 479
+      ExplicitHeight = 479
+    end
     inherited UniHiddenPanel1: TUniHiddenPanel
       object UniEdit1: TUniEdit
         Left = 40
@@ -134,6 +141,137 @@ inherited ControleConsultaCaixaGeral: TControleConsultaCaixaGeral
         Text = 'UNIEDIT1'
         TabOrder = 1
       end
+    end
+    inherited UniPanelRight: TUniPanel
+      Height = 479
+      ExplicitHeight = 479
+    end
+  end
+  object UniPanel3: TUniPanel [3]
+    Left = 0
+    Top = 536
+    Width = 1004
+    Height = 38
+    Hint = ''
+    Align = alBottom
+    TabOrder = 3
+    BorderStyle = ubsNone
+    Caption = ''
+    object UniLabel1: TUniLabel
+      AlignWithMargins = True
+      Left = 337
+      Top = 13
+      Width = 53
+      Height = 19
+      Hint = ''
+      Margins.Top = 13
+      Caption = 'Sa'#237'das'
+      Align = alLeft
+      ParentFont = False
+      Font.Height = -16
+      Font.Style = [fsBold]
+      TabOrder = 1
+      LayoutConfig.Margin = '0 0 0 20'
+      ExplicitLeft = 287
+    end
+    object edtSaldo: TUniFormattedNumberEdit
+      AlignWithMargins = True
+      Left = 703
+      Top = 3
+      Width = 250
+      Height = 32
+      Hint = ''
+      FormattedInput.ShowCurrencySign = True
+      FormattedInput.CurrencySignPos = cpsLeft
+      BorderStyle = ubsNone
+      ParentFont = False
+      Font.Color = clGray
+      Font.Height = -24
+      Align = alLeft
+      TabOrder = 2
+      TabStop = False
+      Color = 16119285
+      ReadOnly = True
+      LayoutConfig.Margin = '0 0 0 20'
+      DecimalSeparator = ','
+      ThousandSeparator = '.'
+    end
+    object UniLabel2: TUniLabel
+      AlignWithMargins = True
+      Left = 3
+      Top = 13
+      Width = 72
+      Height = 19
+      Hint = ''
+      Margins.Top = 13
+      Caption = 'Entradas'
+      Align = alLeft
+      ParentFont = False
+      Font.Height = -16
+      Font.Style = [fsBold]
+      TabOrder = 3
+      LayoutConfig.Margin = '0 0 0 20'
+    end
+    object edtEntradas: TUniFormattedNumberEdit
+      AlignWithMargins = True
+      Left = 81
+      Top = 3
+      Width = 250
+      Height = 32
+      Hint = ''
+      FormattedInput.ShowCurrencySign = True
+      FormattedInput.CurrencySignPos = cpsLeft
+      BorderStyle = ubsNone
+      ParentFont = False
+      Font.Color = clGray
+      Font.Height = -24
+      Align = alLeft
+      TabOrder = 4
+      TabStop = False
+      Color = 16119285
+      ReadOnly = True
+      LayoutConfig.Margin = '0 0 0 20'
+      DecimalSeparator = ','
+      ThousandSeparator = '.'
+    end
+    object UniLabel3: TUniLabel
+      AlignWithMargins = True
+      Left = 652
+      Top = 13
+      Width = 45
+      Height = 19
+      Hint = ''
+      Margins.Top = 13
+      Caption = 'Saldo'
+      Align = alLeft
+      ParentFont = False
+      Font.Height = -16
+      Font.Style = [fsBold]
+      TabOrder = 5
+      LayoutConfig.Margin = '0 0 0 20'
+      ExplicitLeft = 552
+    end
+    object edtSaidas: TUniFormattedNumberEdit
+      AlignWithMargins = True
+      Left = 396
+      Top = 3
+      Width = 250
+      Height = 32
+      Hint = ''
+      FormattedInput.ShowCurrencySign = True
+      FormattedInput.CurrencySignPos = cpsLeft
+      BorderStyle = ubsNone
+      ParentFont = False
+      Font.Color = clGray
+      Font.Height = -24
+      Align = alLeft
+      TabOrder = 6
+      TabStop = False
+      Color = 16119285
+      ReadOnly = True
+      LayoutConfig.Margin = '0 0 0 20'
+      DecimalSeparator = ','
+      ThousandSeparator = '.'
     end
   end
   inherited UniImageList1: TUniImageList
@@ -1037,6 +1175,7 @@ inherited ControleConsultaCaixaGeral: TControleConsultaCaixaGeral
       000000000000}
   end
   inherited CdsConsulta: TClientDataSet
+    AggregatesActive = True
     Params = <
       item
         DataType = ftWideString
@@ -1045,6 +1184,8 @@ inherited ControleConsultaCaixaGeral: TControleConsultaCaixaGeral
         Size = 2
         Value = '%%'
       end>
+    AfterOpen = CdsConsultaAfterOpen
+    AfterRefresh = CdsConsultaAfterRefresh
     object CdsConsultaLOGIN: TWideStringField
       FieldName = 'LOGIN'
       Size = 50
@@ -1076,6 +1217,23 @@ inherited ControleConsultaCaixaGeral: TControleConsultaCaixaGeral
     end
     object CdsConsultaUSUARIO_ID: TFloatField
       FieldName = 'USUARIO_ID'
+    end
+    object CdsConsultaTOTAL_ENTRADAS: TAggregateField
+      FieldName = 'TOTAL_ENTRADAS'
+      Active = True
+      DisplayName = ''
+      Expression = 'sum(ENTRADA)'
+    end
+    object CdsConsultaTOTAL_SAIDAS: TAggregateField
+      FieldName = 'TOTAL_SAIDAS'
+      Active = True
+      DisplayName = ''
+      Expression = 'SUM(SAIDA)'
+    end
+    object CdsConsultaSALDO: TAggregateField
+      FieldName = 'SALDO'
+      Active = True
+      DisplayName = ''
     end
   end
   inherited QryConsulta: TADOQuery

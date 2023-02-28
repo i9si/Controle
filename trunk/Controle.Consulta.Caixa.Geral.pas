@@ -27,11 +27,24 @@ type
     dtpInicial: TUniDateTimePicker;
     dtpFinal: TUniDateTimePicker;
     btnFiltrar: TUniButton;
+    UniPanel3: TUniPanel;
+    UniLabel1: TUniLabel;
+    edtSaldo: TUniFormattedNumberEdit;
+    UniLabel2: TUniLabel;
+    edtEntradas: TUniFormattedNumberEdit;
+    UniLabel3: TUniLabel;
+    edtSaidas: TUniFormattedNumberEdit;
+    CdsConsultaTOTAL_ENTRADAS: TAggregateField;
+    CdsConsultaTOTAL_SAIDAS: TAggregateField;
+    CdsConsultaSALDO: TAggregateField;
     procedure BotaoAbrirClick(Sender: TObject);
     procedure GrdResultadoDblClick(Sender: TObject);
     procedure btnFiltrarClick(Sender: TObject);
+    procedure CdsConsultaAfterRefresh(DataSet: TDataSet);
+    procedure CdsConsultaAfterOpen(DataSet: TDataSet);
   private
     procedure filtraCaixa(vDataInicial : string = '';vDataFinal : string = '');
+    procedure AtualizaTotais;
     { Private declarations }
   public
     { Public declarations }
@@ -70,6 +83,19 @@ begin
   inherited;
   filtraCaixa(Trim(DateToStr(dtpInicial.DateTime)),
               Trim(DateToStr(dtpFinal.DateTime)));
+end;
+
+procedure TControleConsultaCaixaGeral.CdsConsultaAfterOpen(DataSet: TDataSet);
+begin
+  inherited;
+  AtualizaTotais;
+end;
+
+procedure TControleConsultaCaixaGeral.CdsConsultaAfterRefresh(
+  DataSet: TDataSet);
+begin
+  inherited;
+  AtualizaTotais;
 end;
 
 procedure TControleConsultaCaixaGeral.GrdResultadoDblClick(Sender: TObject);
@@ -131,11 +157,19 @@ begin
                           +'          c.data_abertura,'
                           +'          c.usuario_id,'
                           +'          c.data_fechamento'
-                          +'    ORDER BY 3 DESC';
+                          +'    ORDER BY 2,1 DESC';
 //      QryConsulta.SaveToFile('testeSql.txt');
       QryConsulta.SQL.Text := sql;
       CdsConsulta.Open;
     end;
+end;
+
+procedure TControleConsultaCaixaGeral.AtualizaTotais;
+begin
+
+  edtEntradas.Value := StrToFloatDef(CdsConsultaTOTAL_ENTRADAS.AsString,0);
+  edtSaidas.Value := StrToFloatDef(CdsConsultaTOTAL_SAIDAS.AsString,0);
+  edtSaldo.Value := (edtEntradas.Value - edtSaidas.Value);
 end;
 
 end.
